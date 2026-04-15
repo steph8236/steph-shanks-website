@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steph Shanks Photography | Legacy Portrait & Brand Photographer for Women</title>
+  <meta name="description" content="Steph Shanks photographs women who have already done the work. Legacy portraits and brand imagery — in your home, in your world, on your terms. Traveling across the US." />
+  <meta name="keywords" content="legacy portrait photographer, brand photographer for women, in-home portrait photography, transformational photographer, women's portrait photography, personal brand photography" />
+  <meta property="og:title" content="Steph Shanks Photography | Legacy Portrait & Brand Photographer for Women" />
+  <meta property="og:description" content="You've built something extraordinary. It's time to document it. Legacy portraits and brand imagery — in your home, in your world, on your terms." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Steph Shanks Photography | Legacy Portrait & Brand Photographer" />
+  <meta name="twitter:description" content="You've built something extraordinary. It's time to document it." />
+  <link rel="canonical" href="https://stephshanks.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Steph Shanks Photography",
+    "description": "Transformational portrait and brand photography for women. Legacy sessions and brand imagery — in your home, in your world, on your terms.",
+    "url": "https://stephshanks.com",
+    "image": "https://stephshanks.com/images/hero.jpg",
+    "priceRange": "$$$$",
+    "serviceType": ["Legacy Portrait Photography", "Brand Photography", "In-Home Photography"],
+    "areaServed": "United States",
+    "sameAs": ["https://instagram.com/stephshanks"]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:       #F4F1EB;
+      --cream-mid:   #E8E4DC;
+      --cream-dark:  #DDDAD2;
+      --terra:       #B87878;
+      --terra-light: #CA9292;
+      --terra-dark:  #9A5F5F;
+      --bark:        #272727;
+      --bark-mid:    #444444;
+      --sand:        #8FA48A;
+      --sand-light:  #AEBFAA;
+      --text:        #1E1E1E;
+      --text-soft:   #686868;
+      --white:       #FAFAF8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      font-weight: 300;
+    }
+
+    /* ── UTILITY ── */
+    .eyebrow {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ═══════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      mix-blend-mode: normal;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    /* ═══════════════════════════════════════
+       SECTION 1 — HERO
+    ═══════════════════════════════════════ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: #1a1a1a;
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transform: scale(1.03);
+      animation: heroSettle 2.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes heroSettle {
+      from { transform: scale(1.06); }
+      to   { transform: scale(1.00); }
+    }
+
+    /* Left-side gradient so text reads clearly; right side of image breathes */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right,  rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.45) 55%, rgba(10,10,10,0.08) 100%),
+        linear-gradient(to bottom, rgba(10,10,10,0.10) 0%, rgba(10,10,10,0.00) 40%, rgba(10,10,10,0.40) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 5rem;
+      max-width: 760px;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: heroFadeUp 1s ease 0.4s forwards;
+    }
+
+    @keyframes heroFadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--terra-light);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--terra-light);
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 6.5vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.02;
+      color: var(--white);
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: rgba(201, 184, 158, 0.92);
+      display: block;
+    }
+
+    .hero-rule {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.25);
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    .hero-sub {
+      font-size: 0.92rem;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+      max-width: 400px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 5rem;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.2);
+      display: block;
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.8; }
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.4);
+      background: transparent;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--white);
+    }
+
+    .btn-terra {
+      display: inline-block;
+      padding: 1rem 2.75rem;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--white);
+      background: var(--terra);
+      border: 1px solid var(--terra);
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+    .btn-terra:hover { background: var(--terra-dark); border-color: var(--terra-dark); }
+
+    .btn-outline-dark {
+      display: inline-block;
+      padding: 0.9rem 2.25rem;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--bark);
+      border: 1px solid var(--bark-mid);
+      background: transparent;
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+    .btn-outline-dark:hover { background: var(--bark); color: var(--white); }
+
+    /* ═══════════════════════════════════════
+       SECTION 2 — THE HOOK
+    ═══════════════════════════════════════ */
+    .hook {
+      background: var(--white);
+      padding: 9rem 3rem;
+    }
+
+    .hook-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .hook-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.65rem, 2.8vw, 2.35rem);
+      font-weight: 300;
+      line-height: 1.55;
+      color: var(--bark);
+      letter-spacing: 0.01em;
+    }
+
+    .hook-text em {
+      font-style: italic;
+      color: var(--terra);
+    }
+
+    /* ═══════════════════════════════════════
+       SECTION 3 — THE OFFER
+    ═══════════════════════════════════════ */
+    .offer {
+      background: var(--cream);
+      padding: 8rem 3rem;
+    }
+
+    .offer-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .offer-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 400;
+      color: var(--bark);
+      line-height: 1.2;
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .offer-card {
+      background: var(--white);
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .offer-card-image {
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+    }
+
+    .offer-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .offer-card:hover .offer-card-image img { transform: scale(1.03); }
+
+    .offer-card-body {
+      padding: 3rem 3.5rem 3.5rem;
+    }
+
+    .offer-card:first-child {
+      border-right: none;
+    }
+
+    .offer-tag {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .offer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--bark);
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+
+    .offer-desc {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.85;
+      margin-bottom: 2rem;
+    }
+
+    .offer-includes {
+      list-style: none;
+      margin-bottom: 2.5rem;
+    }
+
+    .offer-includes li {
+      border-bottom: 1px solid var(--cream-mid);
+    }
+
+    .offer-item-toggle {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 0.65rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .offer-dash {
+      font-size: 0.88rem;
+      color: var(--terra);
+      flex-shrink: 0;
+      line-height: 1.6;
+      transition: transform 0.25s, color 0.2s;
+      display: inline-block;
+      width: 1em;
+    }
+
+    .offer-item-toggle[aria-expanded="true"] .offer-dash {
+      transform: rotate(45deg);
+      color: var(--bark-mid);
+    }
+
+    .offer-item-title {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+      transition: color 0.2s;
+    }
+
+    .offer-item-toggle:hover .offer-item-title { color: var(--text); }
+    .offer-item-toggle[aria-expanded="true"] .offer-item-title { color: var(--text); }
+
+    .offer-item-body {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease, opacity 0.25s ease;
+      opacity: 0;
+    }
+
+    .offer-item-body.open {
+      max-height: 200px;
+      opacity: 1;
+    }
+
+    .offer-item-body p {
+      font-size: 0.83rem;
+      color: var(--text-soft);
+      line-height: 1.75;
+      padding: 0.1rem 0 0.9rem 1.75rem;
+      font-style: italic;
+    }
+
+    .offer-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--bark-mid);
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+    }
+
+    .offer-price em {
+      font-style: italic;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    /* ═══════════════════════════════════════
+       SECTION 4 — THE PROOF
+    ═══════════════════════════════════════ */
+    .proof {
+      background: var(--bark);
+      padding: 8rem 3rem;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .proof-item {}
+
+    .proof-image {
+      width: 100%;
+      aspect-ratio: 4/5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.75rem;
+    }
+
+    .proof-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .proof-truth {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--sand);
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════
+       SECTION 5 — ABOUT (SHORT)
+    ═══════════════════════════════════════ */
+    .about-short {
+      background: var(--white);
+      padding: 9rem 3rem;
+    }
+
+    .about-short-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 7rem;
+      align-items: center;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .about-image {
+      aspect-ratio: 3/4;
+      background: #c0bbb4;
+      overflow: hidden;
+    }
+
+    .about-text-block p {
+      font-size: 1.05rem;
+      color: var(--text-soft);
+      line-height: 1.9;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-text-block p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .about-link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terra);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184, 105, 74, 0.3);
+      padding-bottom: 0.15rem;
+      transition: border-color 0.2s;
+    }
+    .about-link:hover { border-color: var(--terra); }
+
+    /* ═══════════════════════════════════════
+       SECTION 6 — PODCAST
+    ═══════════════════════════════════════ */
+    .podcast {
+      background: var(--cream-mid);
+      padding: 7rem 3rem;
+    }
+
+    .podcast-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4.5rem;
+      align-items: center;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .podcast-art {
+      width: 200px;
+      height: 200px;
+      flex-shrink: 0;
+      background: linear-gradient(140deg, #787878 0%, #2E2E2E 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .podcast-content {}
+
+    .podcast-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--bark);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .podcast-title em { font-style: italic; color: var(--terra); }
+
+    .podcast-desc {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      max-width: 480px;
+    }
+
+    .podcast-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .listen-link {
+      display: inline-block;
+      padding: 0.65rem 1.5rem;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--bark-mid);
+      border: 1px solid var(--sand);
+      background: transparent;
+      transition: all 0.2s;
+    }
+    .listen-link:hover { background: var(--bark); color: var(--white); border-color: var(--bark); }
+
+    /* ═══════════════════════════════════════
+       SECTION 7 — INVITATION
+    ═══════════════════════════════════════ */
+    .invitation {
+      background: var(--cream);
+      padding: 10rem 3rem 7rem;
+      text-align: center;
+    }
+
+    .invitation-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .invitation h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+      font-weight: 300;
+      color: var(--bark);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .invitation h2 em { font-style: italic; color: var(--terra); }
+
+    .invitation p {
+      font-size: 1rem;
+      color: var(--text-soft);
+      line-height: 1.85;
+      margin-bottom: 3rem;
+    }
+
+    /* FORM */
+    .contact-form {
+      max-width: 620px;
+      margin: 4rem auto 0;
+      text-align: left;
+    }
+
+    .contact-form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--bark-mid);
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      font-size: 0.66rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    input, textarea {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      padding: 0.9rem 1.1rem;
+      border: 1px solid var(--cream-dark);
+      background: var(--white);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    input:focus, textarea:focus { border-color: var(--terra); }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form-submit {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    /* ── INSTAGRAM ── */
+    .instagram-section {
+      padding: 6rem 2rem;
+      background: var(--cream);
+      text-align: center;
+    }
+    .instagram-header { margin-bottom: 2.5rem; }
+    .instagram-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 0.75rem;
+    }
+    .instagram-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      color: var(--bark);
+      margin-bottom: 0.75rem;
+    }
+    .instagram-sub {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      max-width: 440px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 4px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .insta-tile {
+      aspect-ratio: 1/1;
+      background-size: cover;
+      background-position: center;
+      transition: opacity 0.3s ease;
+    }
+    .insta-tile:hover { opacity: 0.85; }
+    @media (max-width: 768px) {
+      .instagram-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    footer {
+      background: var(--bark);
+      padding: 3.5rem 3rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream-mid);
+      text-decoration: none;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .footer-nav a {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(201, 184, 158, 0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--sand); }
+
+    .footer-copy {
+      font-size: 0.68rem;
+      color: rgba(201, 184, 158, 0.35);
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 960px) {
+      nav { padding: 1.25rem 2rem; }
+      .nav-links { gap: 1.75rem; }
+
+      .hero-content { padding: 0 2.5rem; }
+      .hero-headline { font-size: clamp(2.8rem, 8vw, 4.5rem); }
+
+      .hook { padding: 6rem 2rem; }
+
+      .offer-grid { grid-template-columns: 1fr; gap: 2px; }
+
+      .proof-grid { grid-template-columns: 1fr; gap: 4rem; max-width: 480px; }
+
+      .about-short-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-image { aspect-ratio: 4/3; max-width: 400px; }
+
+      .podcast-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .podcast-art { width: 140px; height: 140px; }
+
+      .footer-inner { flex-direction: column; gap: 2rem; text-align: center; }
+      .footer-nav { flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+    }
+
+    @media (max-width: 640px) {
+      .hero-content { padding: 0 1.5rem; }
+      .hook { padding: 5rem 1.5rem; }
+      .offer { padding: 5rem 1.5rem; }
+      .offer-card { padding: 3rem 2rem; }
+      .proof { padding: 5rem 1.5rem; }
+      .about-short { padding: 5rem 1.5rem; }
+      .podcast { padding: 5rem 1.5rem; }
+      .invitation { padding: 6rem 1.5rem 5rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Steph Shanks</a>
+    <ul class="nav-links">
+      <li><a href="services.html">Sessions</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#podcast">Podcast</a></li>
+      <li><a href="contact.html">Begin Here</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ════════════════════════════════
+       SECTION 1 — HERO
+  ════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="images/hero.jpg" alt="Steph Shanks Photography" />
+    </div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Transformational Photography</span>
+      <h1 class="hero-headline">
+        You've built something<br>extraordinary.
+        <em>It's time to<br>document it.</em>
+      </h1>
+      <span class="hero-rule"></span>
+      <p class="hero-sub">
+        Legacy portraits and brand imagery —
+        in your home, in your world, on your terms.
+      </p>
+      <div class="hero-ctas">
+        <a href="portfolio.html" class="btn-terra">View the Work</a>
+        <a href="contact.html#contact" class="btn-ghost">Begin Here</a>
+      </div>
+    </div>
+    <a href="#hook" class="hero-scroll">
+      <span class="hero-scroll-line"></span>
+      Scroll
+    </a>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       SECTION 2 — THE HOOK
+  ════════════════════════════════ -->
+  <section class="hook" id="hook">
+    <div class="hook-inner">
+      <p class="eyebrow">For the woman who built something extraordinary</p>
+      <p class="hook-text">
+        After 20 years photographing women across Wisconsin, I've learned that the best portraits happen with genuine connection, good light, and a location that feels like you — your home, your garden, your favorite corner of <em>Devil's Lake or the Wisconsin Dells.</em><br><br>
+        Tell me where you feel most alive. That's where we'll start.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       SECTION 3 — THE OFFER
+  ════════════════════════════════ -->
+  <section class="offer" id="offer">
+    <div class="offer-header">
+      <span class="eyebrow">The Sessions</span>
+      <h2>Two ways to be documented.<br>Both entirely yours.</h2>
+    </div>
+
+    <div class="offer-grid">
+
+      <div class="offer-card">
+        <div class="offer-card-image">
+          <img src="images/offer-legacy.jpg" alt="The Legacy Session" />
+        </div>
+        <div class="offer-card-body">
+        <span class="offer-tag">Signature Experience</span>
+        <h2 class="offer-name">The Legacy<br>Session</h2>
+        <p class="offer-desc">
+          A full day. Your home, your land, your life — all of it.
+          The books on your shelves, the light through your kitchen window,
+          the garden where you come back to yourself.
+          Legacy portraits alongside brand images built for a thought leader.
+        </p>
+        <ul class="offer-includes">
+          <li>
+            <button class="offer-item-toggle" aria-expanded="false">
+              <span class="offer-dash">—</span>
+              <span class="offer-item-title">Style and concept session</span>
+            </button>
+            <div class="offer-item-body"><p>Before we photograph anything, we sit down together — in person or virtually — to map out your vision, the spaces you want to capture, your wardrobe, and how you want to feel in these images. Nothing is left to chance.</p></div>
+          </li>
+          <li>
+            <button class="offer-item-toggle" aria-expanded="false">
+              <span class="offer-dash">—</span>
+              <span class="offer-item-title">Full day at your home or property</span>
+            </button>
+            <div class="offer-item-body"><p>Six to eight unhurried hours in your world. Your kitchen, your study, your garden, your land — we move through all of it together. There is no rushing.</p></div>
+          </li>
+          <li>
+            <button class="offer-item-toggle" aria-expanded="false">
+              <span class="offer-dash">—</span>
+              <span class="offer-item-title">Professional hair and makeup</span>
+            </button>
+            <div class="offer-item-body"><p>A talented hair and makeup artist comes to you before we begin. You arrive to your own session already feeling entirely like yourself.</p></div>
+          </li>
+          <li>
+            <button class="offer-item-toggle" aria-expanded="false">
+              <span class="offer-dash">—</span>
+              <span class="offer-item-title">Legacy portraits for walls and family</span>
+            </button>
+            <div class="offer-item-body"><p>Fine art prints designed to live on your walls for decades. These are the images your grandchildren will know you by.</p></div>
+          </li>
+          <li>
+            <button class="offer-item-toggle" aria-expanded="false">
+              <span class="offer-dash">—</span>
+              <span class="offer-item-title">Brand imagery for speakers, authors, and leaders</span>
+            </button>
+            <div class="offer-item-body"><p>Clean, powerful images for your website, book covers, press features, and speaking profiles. The kind that make people stop scrolling.</p></div>
+          </li>
+          <li>
+            <button class="offer-item-toggle" aria-expanded="false">
+              <span class="offer-dash">—</span>
+              <span class="offer-item-title">Reveal and ordering session</span>
+            </button>
+            <div class="offer-item-body"><p>We sit together and look at your images. You choose what you love. Nothing is decided until that moment.</p></div>
+          </li>
+        </ul>
+        <p class="offer-price">Starting from $1,290 <em>· Inquiry for full investment menu</em></p>
+        <a href="#invitation" class="btn-outline-dark">Inquire</a>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <div class="offer-card-image">
+          <img src="images/offer-portrait.jpg" alt="The Portrait Session" />
+        </div>
+        <div class="offer-card-body">
+        <span class="offer-tag">Focused Experience</span>
+        <h2 class="offer-name">The Portrait<br>Session</h2>
+        <p class="offer-desc">
+          Half a day. Intimate and unhurried.
+          We focus on one chapter, one room, one facet of who you are.
+          For the woman who knows exactly what she needs — and is ready for it.
+        </p>
+        <ul class="offer-includes">
+          <li>
+            <button class="offer-item-toggle" aria-expanded="false">
+              <span class="offer-dash">—</span>
+              <span class="offer-item-title">Style and concept session</span>
+            </button>
+            <div class="offer-item-body"><p>Before we photograph anything, we sit down together to talk through your vision, the space, your wardrobe, and how you want to feel. This is where the session takes shape.</p></div>
+          </li>
+          <li>
+            <button class="offer-item-toggle" aria-expanded="false">
+              <span class="offer-dash">—</span>
+              <span class="offer-item-title">Half day at your home</span>
+            </button>
+            <div class="offer-item-body"><p>Three to four focused hours in a space that means something to you. Intimate, unhurried, and entirely yours.</p></div>
+          </li>
+          <li>
+            <button class="offer-item-toggle" aria-expanded="false">
+              <span class="offer-dash">—</span>
+              <span class="offer-item-title">Professional hair and makeup</span>
+            </button>
+            <div class="offer-item-body"><p>A talented hair and makeup artist comes to you before we begin. You arrive to your own session already feeling entirely like yourself.</p></div>
+          </li>
+          <li>
+            <button class="offer-item-toggle" aria-expanded="false">
+              <span class="offer-dash">—</span>
+              <span class="offer-item-title">Intimate portrait collection</span>
+            </button>
+            <div class="offer-item-body"><p>A carefully curated set of images from your session — portraits that feel honest and true to who you are right now, in this chapter.</p></div>
+          </li>
+          <li>
+            <button class="offer-item-toggle" aria-expanded="false">
+              <span class="offer-dash">—</span>
+              <span class="offer-item-title">Wall art designed for your space</span>
+            </button>
+            <div class="offer-item-body"><p>We work together to choose the right image, size, and format. Something made to live in your home — not sit in a folder on your desktop.</p></div>
+          </li>
+          <li>
+            <button class="offer-item-toggle" aria-expanded="false">
+              <span class="offer-dash">—</span>
+              <span class="offer-item-title">Reveal and ordering session</span>
+            </button>
+            <div class="offer-item-body"><p>We sit together and look at your images. You choose what you love. Nothing is decided until that moment.</p></div>
+          </li>
+        </ul>
+        <p class="offer-price">Starting from $690 <em>· Inquiry for full investment menu</em></p>
+        <a href="#invitation" class="btn-outline-dark">Inquire</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       SECTION 4 — THE PROOF
+  ════════════════════════════════ -->
+  <section class="proof" id="proof">
+    <div class="proof-grid">
+
+      <div class="proof-item">
+        <div class="proof-image">
+          <img src="images/proof-2.jpg" alt="Aimee — Commercial Photo Session, Middleton WI" />
+        </div>
+        <p class="proof-truth"><strong>Aimee</strong> — Middleton, WI. Commercial Photo Session. Owner of Dog's Best Friend Training since 2007. Nearly two decades of building something she believes in, one dog (and one human) at a time.</p>
+      </div>
+
+      <div class="proof-item">
+        <div class="proof-image">
+          <img src="images/proof-3.jpg" alt="Dr. Karyn — Personal Branding Session, Middleton WI" />
+        </div>
+        <p class="proof-truth"><strong>Dr. Karyn</strong> — Author &amp; Physician, Middleton WI. Personal Branding Session. Her biggest accomplishment? Raising two boys (now men) who feel safe being exactly who they are. "I'm so grateful for that."</p>
+      </div>
+
+      <div class="proof-item">
+        <div class="proof-image">
+          <img src="images/laura.k-13.jpg" alt="Laura — Personal Branding Session, Madison WI" />
+        </div>
+        <p class="proof-truth"><strong>Laura</strong> — Madison, WI. Personal Branding Session. She is grateful for her perseverance through everything shitty life has dealt her — co-parenting, chronic illness, family estrangement. She will survive.</p>
+      </div>
+
+      <div class="proof-item">
+        <div class="proof-image">
+          <img src="images/Laura-12.jpg" alt="Laura — Personal Branding Session, Merrimac WI" />
+        </div>
+        <p class="proof-truth"><strong>Laura</strong> — Merrimac, WI. Personal Branding Session. She left an abusive relationship, raised two sons who are emotionally in tune (and they still like each other), and created the Endotype Formula. All of it, on her own terms.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       SECTION 5 — ABOUT (SHORT)
+  ════════════════════════════════ -->
+  <section class="about-short" id="about-short">
+    <div class="about-short-grid">
+
+      <div class="about-image">
+        <img src="images/about.jpg" alt="Stephanie Shanks" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;" />
+      </div>
+
+      <div class="about-text-block">
+        <span class="eyebrow">About Steph Shanks</span>
+        <p>
+          Some women walk into a room and change the energy. They've built careers, raised families, created something from nothing — and somehow, through all of it, they've never once been photographed the way they deserve.
+        </p>
+        <p>
+          I'm Stephanie Shanks, a Wisconsin portrait and personal branding photographer with over 20 years of experience. I work with women who are ready — ready to have images that finally match their authority, their warmth, their whole life.
+        </p>
+        <p>
+          I come to you. Your home, your space, the corners of Wisconsin that mean something to you. And I create portraits that tell the truth about who you are.
+        </p>
+        <a href="about.html" class="about-link">Read my full story →</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       SECTION 6 — PODCAST
+  ════════════════════════════════ -->
+  <section class="podcast" id="podcast">
+    <div class="podcast-inner">
+
+      <div class="podcast-art">
+        <p style="font-family:'Cormorant Garamond',serif; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.25); text-align:center;">Podcast<br>Cover Art</p>
+      </div>
+
+      <div class="podcast-content">
+        <span class="eyebrow">Now Listening</span>
+        <h2 class="podcast-title"><em>Unwritten</em> with Steph Shanks</h2>
+        <p class="podcast-desc">
+          Conversations with women who are in the middle of writing their next chapter.
+          No tidy endings. No performed wisdom. Just real women, real turning points,
+          and what it actually takes to choose yourself.
+        </p>
+        <div class="podcast-links">
+          <a href="#" class="listen-link">Apple Podcasts</a>
+          <a href="#" class="listen-link">Spotify</a>
+          <a href="#" class="listen-link">All Episodes</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       SECTION 7 — THE INVITATION
+  ════════════════════════════════ -->
+  <section class="invitation" id="invitation">
+    <div class="invitation-inner">
+      <span class="eyebrow">The Invitation</span>
+      <h2>You've built something<br>worth <em>documenting.</em></h2>
+      <p>Let me come to you.</p>
+    </div>
+
+    <div class="invitation-inner" style="margin-top: 1.5rem; text-align:center;">
+      <a href="#contact-form" class="btn-terra" style="margin-bottom: 5rem; display:inline-block;">Start the Conversation</a>
+    </div>
+
+    <div class="contact-form" id="contact-form">
+      <p class="contact-form-title">Tell me about your life and your work.</p>
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell me about your life and your work</label>
+          <textarea id="message" name="message" placeholder="What have you built? What does your home feel like? What are you stepping into? I read every single one of these personally."></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn-terra">Send</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       INSTAGRAM FEED
+  ════════════════════════════════ -->
+  <section class="instagram-section">
+    <div class="instagram-header">
+      <p class="instagram-eyebrow">Follow Along</p>
+      <h2 class="instagram-title">@stephshanks</h2>
+      <p class="instagram-sub">Behind the lens, behind the life — come find me on Instagram.</p>
+    </div>
+
+    <!-- EMBED: Replace the placeholder grid below with your Curator.io or later.com embed code when live -->
+    <div class="instagram-grid">
+      <div class="insta-tile" style="background-image:url('images/p-19.jpg')"></div>
+      <div class="insta-tile" style="background-image:url('images/p-21.jpg')"></div>
+      <div class="insta-tile" style="background-image:url('images/p-05.jpg')"></div>
+      <div class="insta-tile" style="background-image:url('images/p-18.jpg')"></div>
+      <div class="insta-tile" style="background-image:url('images/p-07.jpg')"></div>
+      <div class="insta-tile" style="background-image:url('images/p-22.jpg')"></div>
+    </div>
+
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a href="https://instagram.com/stephshanks" target="_blank" class="btn-outline-dark">Follow on Instagram</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="#" class="footer-logo">Steph Shanks Photography</a>
+      <ul class="footer-nav">
+        <li><a href="services.html">Sessions</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Begin Here</a></li>
+        <li><a href="mailto:stephanie@stephshanks.com">stephanie@stephshanks.com</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Steph Shanks Photography</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.offer-item-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        var body = this.nextElementSibling;
+        this.setAttribute('aria-expanded', !expanded);
+        if (!expanded) {
+          body.classList.add('open');
+        } else {
+          body.classList.remove('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
