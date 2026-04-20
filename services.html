@@ -95,6 +95,31 @@
     }
     .nav-links a:hover, .nav-links a.active { color: var(--bark); }
 
+    /* ── HAMBURGER ── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 26px;
+      height: 16px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 300;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background: var(--bark);
+      transition: all 0.3s ease;
+      transform-origin: left center;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: rotate(40deg) translateY(-1px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-40deg) translateY(1px); }
+
     /* ── BUTTONS ── */
     .btn-terra {
       display: inline-block;
@@ -574,9 +599,27 @@
       .for-me-inner { grid-template-columns: 1fr; gap: 3rem; }
     }
 
+    @media (max-width: 768px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: var(--bark);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        z-index: 250;
+        list-style: none;
+      }
+      .nav-links.is-open { display: flex; }
+      .nav-links a { font-size: 1.1rem; color: var(--cream) !important; letter-spacing: 0.25em; }
+      .page-header h1 { font-size: clamp(2rem, 7vw, 3.2rem); }
+    }
+
     @media (max-width: 600px) {
       nav { padding: 1.25rem 1.5rem; }
-      .nav-links { display: none; }
       .page-header, .how-it-works, .sessions, .retreat-banner, .for-me { padding-left: 1.5rem; padding-right: 1.5rem; }
       .steps-grid { grid-template-columns: 1fr; }
       .session-body { padding: 3rem 2rem; }
@@ -727,6 +770,9 @@
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Begin Here</a></li>
     </ul>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
 
@@ -751,14 +797,14 @@
     </div>
 
     <!-- Legacy Session -->
-    <div class="session-row">
+    <div class="session-row" id="legacy-session">
       <div class="session-image">
         <img src="images/centralwisconsinphotographers.jpg" alt="The Legacy Session" style="object-position: center center;" />
       </div>
       <div class="session-body">
         <span class="session-tag">Signature Experience</span>
         <h2 class="session-name">The Legacy<br><em>Session</em></h2>
-        <p class="session-desc">A full day in your world. Your home, your land, your life — all of it. The books on your shelves, the light through your kitchen window, the garden where you come back to yourself.<br><br>Legacy portraits alongside personal branding images built for a woman who has earned her authority — and is finally ready to look like it. We'll catch you in the quiet moments too. The ones between poses where you stop performing and simply are.<br><br>The people who belong in this story are welcome. Your partner, your children, your closest friends.<br><br>This is a celebration of a whole life.</p>
+        <p class="session-desc">A full day in your world. Your home, your land, your life — all of it. The books on your shelves, the light through your kitchen window, the garden where you come back to yourself.<br><br>Legacy portraits alongside personal branding images built for a woman who has earned her authority — and is finally ready to look like it. We'll catch you in the quiet moments too. The ones between poses where you stop performing and simply are.<br><br>The people who belong in this story are welcome. Your partner, your children, your closest friends. Extended family portrait sessions are a natural fit here — generations together, documented in a single unhurried day.<br><br>This is a celebration of a whole life.</p>
 
         <span class="session-includes-title">What's Included</span>
 
@@ -800,14 +846,14 @@
     <div style="height: 2px;"></div>
 
     <!-- Portrait Session -->
-    <div class="session-row flip">
+    <div class="session-row flip" id="portrait-session">
       <div class="session-image">
         <img src="images/madisonwisconsinphotographers.jpg" alt="The Portrait Session" style="object-position: center center;" />
       </div>
       <div class="session-body">
         <span class="session-tag">Intimate Session</span>
         <h2 class="session-name">The Portrait<br><em>Session</em></h2>
-        <p class="session-desc">A more intimate experience with a Wisconsin women's portrait photographer who knows how to slow down. Whether you're in Madison, the Lake Wisconsin area, or anywhere across Central Wisconsin, we'll find your light — chasing golden hour at the end of the day, building a scene around the way you naturally inhabit a space, or simply letting the moment lead. Less about volume, more about depth. Friends and family are welcome here too.</p>
+        <p class="session-desc">A more intimate experience with a Wisconsin women's portrait photographer who knows how to slow down. Whether you're in Madison, the Lake Wisconsin area, or anywhere across Central Wisconsin, we'll find your light — chasing golden hour at the end of the day, building a scene around the way you naturally inhabit a space, or simply letting the moment lead. Less about volume, more about depth. Friends and family are welcome here too.<br><br>This session is also a beautiful fit for senior portraits — a milestone moment photographed with the same care and intention we bring to every session. No rushed poses, no generic backdrops. Just your senior, in her element, stepping into what's next.</p>
 
         <span class="session-includes-title">What's Included</span>
 
@@ -942,6 +988,28 @@
       <p class="footer-copy">© 2026 Steph Shanks Photography</p>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      var toggle = document.querySelector('.nav-toggle');
+      var navLinks = document.querySelector('.nav-links');
+      if (!toggle || !navLinks) return;
+      toggle.addEventListener('click', function() {
+        var isOpen = navLinks.classList.toggle('is-open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      navLinks.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          navLinks.classList.remove('is-open');
+          toggle.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>

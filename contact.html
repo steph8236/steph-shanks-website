@@ -95,6 +95,31 @@
     }
     .nav-links a:hover, .nav-links a.active { color: var(--bark); }
 
+    /* ── HAMBURGER ── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 26px;
+      height: 16px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 300;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background: var(--bark);
+      transition: all 0.3s ease;
+      transform-origin: left center;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: rotate(40deg) translateY(-1px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-40deg) translateY(1px); }
+
     /* ── BUTTONS ── */
     .btn-terra {
       display: inline-block;
@@ -528,9 +553,27 @@
       .retreat-details { grid-template-columns: 1fr 1fr; }
     }
 
+    @media (max-width: 768px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: var(--bark);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        z-index: 250;
+        list-style: none;
+      }
+      .nav-links.is-open { display: flex; }
+      .nav-links a { font-size: 1.1rem; color: var(--cream) !important; letter-spacing: 0.25em; }
+      .page-header h1 { font-size: clamp(1.8rem, 6.5vw, 3rem); }
+    }
+
     @media (max-width: 600px) {
       nav { padding: 1.25rem 1.5rem; }
-      .nav-links { display: none; }
       .page-header { padding: 9rem 1.5rem 4rem; }
       .testimonials, .contact, .retreat-waitlist { padding: 5rem 1.5rem; }
       .form-row { grid-template-columns: 1fr; }
@@ -552,6 +595,9 @@
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="active">Begin Here</a></li>
     </ul>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
 
@@ -592,28 +638,36 @@
 
       <div class="contact-right">
         <p class="contact-form-title">What have you built? What are you stepping into?</p>
-        <form action="#" method="POST">
+        <div data-fs-success style="display:none; padding: 2rem; background: var(--cream); border-left: 3px solid var(--terra); font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--bark); line-height: 1.6;">
+          Thank you — I received your note and I'll be in touch soon. I read every single one of these personally.
+        </div>
+        <div data-fs-error style="display:none; padding: 1rem; background: #fdf0f0; border-left: 3px solid #c0392b; font-size: 0.85rem; color: #c0392b; margin-bottom: 1rem;">
+          Something went wrong. Please try again or email me directly at stephanie@stephshanks.com.
+        </div>
+        <form id="contact-form">
 
           <div class="form-row">
             <div class="form-group">
               <label for="first">First Name</label>
-              <input type="text" id="first" name="first" placeholder="Your first name" required />
+              <input type="text" id="first" name="first" placeholder="Your first name" required data-fs-field />
+              <span data-fs-error="first" style="font-size:0.75rem; color:#c0392b;"></span>
             </div>
             <div class="form-group">
               <label for="last">Last Name</label>
-              <input type="text" id="last" name="last" placeholder="Your last name" />
+              <input type="text" id="last" name="last" placeholder="Your last name" data-fs-field />
             </div>
           </div>
 
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            <input type="email" id="email" name="email" placeholder="your@email.com" required data-fs-field />
+            <span data-fs-error="email" style="font-size:0.75rem; color:#c0392b;"></span>
           </div>
 
           <div class="form-group">
             <label for="session">I'm interested in —</label>
             <div class="select-wrap">
-              <select id="session" name="session">
+              <select id="session" name="session" data-fs-field>
                 <option value="">Choose a session type</option>
                 <option value="legacy">The Legacy Session (Full Day)</option>
                 <option value="portrait">The Portrait Session (Half Day)</option>
@@ -625,11 +679,11 @@
 
           <div class="form-group">
             <label for="message">Tell me about your world</label>
-            <textarea id="message" name="message" placeholder="What have you built? What does your home feel like? What are you stepping into? I read every single one of these personally."></textarea>
+            <textarea id="message" name="message" placeholder="What have you built? What does your home feel like? What are you stepping into? I read every single one of these personally." data-fs-field></textarea>
           </div>
 
           <div class="form-submit">
-            <button type="submit" class="btn-terra">Send My Note</button>
+            <button type="submit" class="btn-terra" data-fs-submit-btn>Send My Note</button>
           </div>
 
         </form>
@@ -727,7 +781,7 @@
       <div class="waitlist-form">
         <h3>Join the Waitlist</h3>
         <p>Be the first to know when details are announced. Waitlist members get first access to spots before public announcement.</p>
-        <form action="#" method="POST">
+        <form action="https://formspree.io/f/maqadnbe" method="POST">
           <div class="form-group">
             <label for="wl-name">Your Name</label>
             <input type="text" id="wl-name" name="name" placeholder="Your name" required />
@@ -762,6 +816,35 @@
       <p class="footer-copy">© 2026 Steph Shanks Photography</p>
     </div>
   </footer>
+
+  <!-- Formspree Ajax -->
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#contact-form', formId: 'maqadnbe' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+  <script>
+    (function() {
+      var toggle = document.querySelector('.nav-toggle');
+      var navLinks = document.querySelector('.nav-links');
+      if (!toggle || !navLinks) return;
+      toggle.addEventListener('click', function() {
+        var isOpen = navLinks.classList.toggle('is-open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      navLinks.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          navLinks.classList.remove('is-open');
+          toggle.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>

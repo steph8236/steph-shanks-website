@@ -101,6 +101,31 @@
       list-style: none;
     }
 
+    /* ── HAMBURGER ── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 26px;
+      height: 16px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 300;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background: var(--white);
+      transition: all 0.3s ease;
+      transform-origin: left center;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: rotate(40deg) translateY(-1px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-40deg) translateY(1px); }
+
     .nav-links a {
       font-size: 0.68rem;
       font-weight: 400;
@@ -861,6 +886,29 @@
     /* ═══════════════════════════════════════
        RESPONSIVE
     ═══════════════════════════════════════ */
+    @media (max-width: 768px) {
+      nav { padding: 1.25rem 1.5rem; background: rgba(10,10,10,0.6); backdrop-filter: blur(10px); }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: var(--bark);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        z-index: 250;
+        list-style: none;
+      }
+      .nav-links.is-open { display: flex; }
+      .nav-links a { font-size: 1.1rem; color: var(--cream) !important; letter-spacing: 0.25em; }
+      .hero-content { padding: 0 1.5rem; }
+      .hero-headline { font-size: clamp(2.4rem, 9vw, 3.8rem); }
+      .hero-sub { font-size: 0.88rem; }
+      .hero-ctas { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+    }
+
     @media (max-width: 960px) {
       nav { padding: 1.25rem 2rem; }
       .nav-links { gap: 1.75rem; }
@@ -909,6 +957,9 @@
       <li><a href="#podcast">Podcast</a></li>
       <li><a href="contact.html">Begin Here</a></li>
     </ul>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
 
@@ -1166,22 +1217,22 @@
   <section class="podcast" id="podcast">
     <div class="podcast-inner">
 
-      <div class="podcast-art">
-        <p style="font-family:'Cormorant Garamond',serif; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.25); text-align:center;">Podcast<br>Cover Art</p>
+      <div class="podcast-art" style="display:flex; align-items:center; justify-content:center;">
+        <a href="https://stephshanks.buzzsprout.com" target="_blank" rel="noopener">
+          <img src="images/Untitled design (1).png" alt="Unwritten with Steph Shanks Podcast" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+        </a>
       </div>
 
       <div class="podcast-content">
-        <span class="eyebrow">Now Listening</span>
+        <span class="eyebrow">Now Listening — 65 Episodes</span>
         <h2 class="podcast-title"><em>Unwritten</em> with Steph Shanks</h2>
         <p class="podcast-desc">
-          Conversations with women who are in the middle of writing their next chapter.
-          No tidy endings. No performed wisdom. Just real women, real turning points,
-          and what it actually takes to choose yourself.
+          Honest, heart-centered conversations about reinvention, resilience, and the courage it takes to rewrite your story. It's never too late. Season 3 is live now.
         </p>
         <div class="podcast-links">
-          <a href="#" class="listen-link">Apple Podcasts</a>
-          <a href="#" class="listen-link">Spotify</a>
-          <a href="#" class="listen-link">All Episodes</a>
+          <a href="https://open.spotify.com/show/search/Unwritten%20with%20Steph%20Shanks" target="_blank" class="listen-link">Spotify</a>
+          <a href="https://music.amazon.com/search/Unwritten%20with%20Steph%20Shanks" target="_blank" class="listen-link">Amazon Music</a>
+          <a href="https://stephshanks.buzzsprout.com" target="_blank" class="listen-link">All Episodes</a>
         </div>
       </div>
 
@@ -1205,7 +1256,7 @@
 
     <div class="contact-form" id="contact-form">
       <p class="contact-form-title">Tell me about your life and your work.</p>
-      <form>
+      <form action="https://formspree.io/f/maqadnbe" method="POST">
         <div class="form-row">
           <div class="form-group">
             <label for="name">Name</label>
@@ -1269,6 +1320,27 @@
   </footer>
 
   <script>
+    // Hamburger menu
+    (function() {
+      var toggle = document.querySelector('.nav-toggle');
+      var navLinks = document.querySelector('.nav-links');
+      if (!toggle || !navLinks) return;
+      toggle.addEventListener('click', function() {
+        var isOpen = navLinks.classList.toggle('is-open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      navLinks.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          navLinks.classList.remove('is-open');
+          toggle.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+
     document.querySelectorAll('.offer-item-toggle').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var expanded = this.getAttribute('aria-expanded') === 'true';

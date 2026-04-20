@@ -95,6 +95,31 @@
     }
     .nav-links a:hover, .nav-links a.active { color: var(--bark); }
 
+    /* ── HAMBURGER ── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 26px;
+      height: 16px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 300;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background: var(--bark);
+      transition: all 0.3s ease;
+      transform-origin: left center;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: rotate(40deg) translateY(-1px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-40deg) translateY(1px); }
+
     /* ── BUTTONS ── */
     .btn-terra {
       display: inline-block;
@@ -482,6 +507,25 @@
     }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: var(--bark);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        z-index: 250;
+        list-style: none;
+      }
+      .nav-links.is-open { display: flex; }
+      .nav-links a { font-size: 1.1rem; color: var(--cream) !important; letter-spacing: 0.25em; }
+      .page-header h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+    }
+
     @media (max-width: 900px) {
       nav { padding: 1.25rem 1.5rem; }
       .gallery-feature { grid-template-columns: 1fr; }
@@ -497,7 +541,6 @@
       .gallery-grid { grid-template-columns: 1fr; }
       .gallery-intro { padding: 3.5rem 1.5rem 2.5rem; }
       .statement, .portfolio-cta { padding: 5rem 1.5rem; }
-      .nav-links { display: none; }
     }
   </style>
 </head>
@@ -512,6 +555,9 @@
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Begin Here</a></li>
     </ul>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
 
@@ -563,19 +609,19 @@
     <div class="gallery-grid">
 
       <div class="gallery-item portrait">
-        <img src="images/p-02.jpg" alt="Laura" />
+        <img src="images/Tina-14.jpg" alt="Personal Branding Session — Tina, Baraboo WI" />
         <div class="story-overlay">
-          <span class="story-name">Laura</span>
-          <p class="story-text">Her greatest accomplishment is becoming a mom to her two daughters. Faith and family are everything.</p>
+          <span class="story-name">Personal Branding Session — Tina, Baraboo WI</span>
+          <p class="story-text">Her biggest accomplishment is having the courage to reinvent herself — from scientist in the lab to speaker on positivity. She didn't just change careers. She changed her whole life.</p>
         </div>
       </div>
 
 
       <div class="gallery-item portrait">
-        <img src="images/p-30.jpg" alt="Portrait session" />
+        <img src="images/p-30.jpg" alt="Senior Portrait Session at Devils Lake — El, Reedsburg WI" />
         <div class="story-overlay">
-          <span class="story-name">Add name here</span>
-          <p class="story-text">Add her story here.</p>
+          <span class="story-name">Senior Portrait Session — El, Reedsburg WI</span>
+          <p class="story-text">Golden hour at Devils Lake. A senior session for a young woman stepping into everything she's becoming.</p>
         </div>
       </div>
 
@@ -605,10 +651,10 @@
       </div>
 
       <div class="gallery-item portrait">
-        <img src="images/p-13.jpg" alt="Portrait session" />
+        <img src="images/p-13.jpg" alt="Family portrait session — Jenn, Fitchburg WI" />
         <div class="story-overlay">
-          <span class="story-name">Add name here</span>
-          <p class="story-text">Add her story here.</p>
+          <span class="story-name">Family Portrait Session — Jenn, Fitchburg WI</span>
+          <p class="story-text">She is learning how to fully show up for her family and herself. She is creating a path of purpose and joy — and that, to her, is the greatest success.</p>
         </div>
       </div>
 
@@ -638,18 +684,18 @@
 
 
       <div class="gallery-item portrait">
-        <img src="images/p-20.jpg" alt="Portrait session" />
+        <img src="images/p-20.jpg" alt="Extended Family Portrait Session — Katie, Rio WI" />
         <div class="story-overlay">
-          <span class="story-name">Add name here</span>
-          <p class="story-text">Add her story here.</p>
+          <span class="story-name">Extended Family Portrait Session — Katie, Rio WI</span>
+          <p class="story-text">Generations together, captured in one frame. This is the kind of session that gets framed and passed down.</p>
         </div>
       </div>
 
       <div class="gallery-item portrait">
-        <img src="images/p-22.jpg" alt="Portrait session" />
+        <img src="images/p-22.jpg" alt="Family & Senior Portrait Session — Leslie, Oconomowoc WI" />
         <div class="story-overlay">
-          <span class="story-name">Add name here</span>
-          <p class="story-text">Add her story here.</p>
+          <span class="story-name">Family &amp; Senior Portrait Session — Leslie, Oconomowoc WI</span>
+          <p class="story-text">One of the first families I ever photographed — back in 2011 when I was just starting out. Still here. Still showing up. That means everything.</p>
         </div>
       </div>
 
@@ -663,51 +709,51 @@
 
 
       <div class="gallery-item portrait">
-        <img src="images/p-25.jpg" alt="Portrait session" />
+        <img src="images/p-25.jpg" alt="Senior & Family Portrait Session at Devils Lake — Shawndell, Baraboo WI" />
         <div class="story-overlay">
-          <span class="story-name">Add name here</span>
-          <p class="story-text">Add her story here.</p>
+          <span class="story-name">Senior &amp; Family Session — Shawndell, Baraboo WI</span>
+          <p class="story-text">A portrait session at Devils Lake — where the landscape is as bold as the people who call this place home.</p>
         </div>
       </div>
 
       <div class="gallery-item portrait">
-        <img src="images/p-26.jpg" alt="Portrait session" />
+        <img src="images/p-26.jpg" alt="Family portrait session — Lisa, Baraboo WI" />
         <div class="story-overlay">
-          <span class="story-name">Add name here</span>
-          <p class="story-text">Add her story here.</p>
+          <span class="story-name">Family Session — Lisa, Baraboo WI</span>
+          <p class="story-text">Her biggest accomplishment is being a mom to her two daughters. Everything she does, she does for them.</p>
         </div>
       </div>
 
       <div class="gallery-item portrait">
-        <img src="images/p-27.jpg" alt="Portrait session" />
+        <img src="images/p-27.jpg" alt="Personal Branding Session — Lacey, Baraboo WI" />
         <div class="story-overlay">
-          <span class="story-name">Add name here</span>
-          <p class="story-text">Add her story here.</p>
+          <span class="story-name">Personal Branding Session — Lacey, Baraboo WI</span>
+          <p class="story-text">Twenty years of Spa Serenity. This session was a celebration of everything she built — and a portrait worthy of the milestone.</p>
         </div>
       </div>
 
 
       <div class="gallery-item portrait">
-        <img src="images/p-31.jpg" alt="Amy" />
+        <img src="images/p-31.jpg" alt="Personal Branding Session — Amy, Baraboo WI" />
         <div class="story-overlay">
-          <span class="story-name">Amy</span>
-          <p class="story-text">Add her story here.</p>
+          <span class="story-name">Personal Branding Session — Amy, Baraboo WI</span>
+          <p class="story-text">Owner of Brava Dance in Baraboo — she built a space where people come to move, create, and belong. This session was made to match that energy.</p>
         </div>
       </div>
 
       <div class="gallery-item portrait">
-        <img src="images/p-32.jpg" alt="Portrait session" />
+        <img src="images/p-32.jpg" alt="Senior & Family Portrait Session — Jo, Wisconsin Dells WI" />
         <div class="story-overlay">
-          <span class="story-name">Add name here</span>
-          <p class="story-text">Add her story here.</p>
+          <span class="story-name">Senior &amp; Family Session — Jo, Wisconsin Dells WI</span>
+          <p class="story-text">Class of 2026. A senior portrait and family combo session — because this milestone belongs to everyone who got her here.</p>
         </div>
       </div>
 
       <div class="gallery-item portrait">
-        <img src="images/p-33.png" alt="Portrait session" />
+        <img src="images/Harmony_Ryan-7233.jpg" alt="Commercial Photo Session — Dr. Harmony Ryan, Verona WI" />
         <div class="story-overlay">
-          <span class="story-name">Add name here</span>
-          <p class="story-text">Add her story here.</p>
+          <span class="story-name">Commercial Session — Dr. Harmony Ryan, Verona WI</span>
+          <p class="story-text">Owner of Harmony Medical Aesthetics. Shot for Persona Magazine — because her work deserves to be seen at that level.</p>
         </div>
       </div>
 
@@ -736,6 +782,7 @@
           <p class="story-text">Her biggest accomplishment is becoming a mom to her two daughters. Faith and family are everything — and this session was made to reflect exactly that.</p>
         </div>
       </div>
+
 
     </div>
 
@@ -837,6 +884,27 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeLightbox();
     });
+
+    // Hamburger menu
+    (function() {
+      var toggle = document.querySelector('.nav-toggle');
+      var navLinks = document.querySelector('.nav-links');
+      if (!toggle || !navLinks) return;
+      toggle.addEventListener('click', function() {
+        var isOpen = navLinks.classList.toggle('is-open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      navLinks.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          navLinks.classList.remove('is-open');
+          toggle.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
   </script>
 
 </body>
